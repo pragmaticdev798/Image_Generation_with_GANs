@@ -122,7 +122,8 @@ def unload_generator_model():
         model_config['checkpoint_path'] = None
         import gc
         gc.collect()
-        torch.cuda.empty_cache()  # If using GPU
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()  # If using GPU
         print("✓ Generator model unloaded and memory freed.")
 
 
