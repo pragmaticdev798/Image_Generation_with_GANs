@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI Face Generation - DCGAN{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/generate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">AI Face Gen</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/generate_page" class="nav-link">Generate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AI Face Generation</h3>
+                <p>Deep Convolutional GAN for realistic face synthesis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Project Info</h3>
+                <ul>
+                    <li>Model: DCGAN</li>
+                    <li>Architecture: 5-Layer CNN</li>
+                    <li>Training: Multiple Epochs</li>
+                    <li>Device: CPU-Optimized</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies</h3>
+                <ul>
+                    <li>PyTorch</li>
+                    <li>Flask</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AI Face Generation Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}AI Face Generation - Home{% endblock %}
+
+{% block content %}
+<div class="home-page">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="animated-bg"></div>
+            <div class="stars"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-word">AI Face</span>
+                <span class="title-word gradient">Generation</span>
+                <span class="title-word">with DCGAN</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Discover the power of Deep Convolutional Generative Adversarial Networks
+            </p>
+            
+            <div class="hero-description">
+                <p>
+                    Our state-of-the-art DCGAN model generates realistic human faces from scratch.
+                    Each face is unique, created by a neural network trained on diverse face images.
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="hero-buttons">
+                <a href="/generate_page" class="btn btn-primary btn-large">
+                    <span class="btn-icon">🎨</span>
+                    Generate Faces
+                </a>
+                <a href="/gallery" class="btn btn-secondary btn-large">
+                    <span class="btn-icon">🖼️</span>
+                    View Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Advanced AI</h3>
+                <p>
+                    DCGAN architecture with deep convolutional layers for high-quality face generation.
+                </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Generation</h3>
+                <p>
+                    Generate multiple realistic faces in seconds using our optimized model.
+                </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>High Quality</h3>
+                <p>
+                    64x64 resolution images with realistic features after extensive training.
+                </p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Interactive</h3>
+                <p>
+                    Intuitive interface with controls for number of images and randomness control.
+                </p>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Download</h3>
+                <p>
+                    Save generated faces locally for your projects and presentations.
+                </p>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Model Info</h3>
+                <p>
+                    Learn about the architecture, training process, and technical details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Random Noise</h3>
+                <p>Generate random noise vector (100-dimensional)</p>
+            </div>
+            
+            <div class="step-arrow">→</div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Generator Network</h3>
+                <p>Pass through 5-layer CNN architecture</p>
+            </div>
+            
+            <div class="step-arrow">→</div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Face Generation</h3>
+                <p>Output: Realistic 64x64 pixel face image</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="stat-card">
+            <h3 class="stat-number">50</h3>
+            <p class="stat-label">Training Epochs</p>
+        </div>
+        
+        <div class="stat-card">
+            <h3 class="stat-number">100</h3>
+            <p class="stat-label">Latent Dimensions</p>
+        </div>
+        
+        <div class="stat-card">
+            <h3 class="stat-number">64×64</h3>
+            <p class="stat-label">Output Resolution</p>
+        </div>
+        
+        <div class="stat-card">
+            <h3 class="stat-number">5</h3>
+            <p class="stat-label">Network Layers</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Generate?</h2>
+        <p>Click below to start creating amazing AI-generated faces</p>
+        <a href="/generate_page" class="btn btn-primary btn-large">
+            <span class="btn-icon">✨</span>
+            Start Generating
+        </a>
+    </section>
+</div>
+
+{% endblock %}

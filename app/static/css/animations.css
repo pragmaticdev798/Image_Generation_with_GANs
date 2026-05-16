@@ -1,0 +1,285 @@
+/* ========================================
+   ANIMATIONS & KEYFRAMES
+   ======================================== */
+
+/* Spinning animation for loading */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse animation for status indicator */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Slide up animation for modals */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Glow animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    }
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Shimmer animation for loading effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Float animation for floating elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-1deg);
+    }
+    75% {
+        transform: rotate(1deg);
+    }
+}
+
+/* ========================================
+   HOME PAGE ANIMATIONS
+   ======================================== */
+
+.hero-title {
+    animation: slideDown 0.8s ease;
+}
+
+.hero-subtitle {
+    animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.hero-buttons {
+    animation: slideUp 0.8s ease 0.4s both;
+}
+
+.title-word {
+    display: inline-block;
+    animation: slideUp 0.8s ease backwards;
+}
+
+.title-word:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.title-word:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.title-word:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.feature-card {
+    animation: scaleIn 0.6s ease backwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0s; }
+.feature-card:nth-child(2) { animation-delay: 0.1s; }
+.feature-card:nth-child(3) { animation-delay: 0.2s; }
+.feature-card:nth-child(4) { animation-delay: 0.3s; }
+.feature-card:nth-child(5) { animation-delay: 0.4s; }
+.feature-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* ========================================
+   ANIMATED BACKGROUND
+   ======================================== */
+
+.animated-bg {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(102, 126, 234, 0.1),
+        rgba(118, 75, 162, 0.1),
+        rgba(102, 126, 234, 0.1)
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    top: -50%;
+    left: -50%;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   PAGE-SPECIFIC ANIMATIONS
+   ======================================== */
+
+/* Generate page animations */
+.control-group {
+    animation: slideDown 0.5s ease backwards;
+}
+
+.control-group:nth-child(1) { animation-delay: 0s; }
+.control-group:nth-child(2) { animation-delay: 0.1s; }
+.control-group:nth-child(3) { animation-delay: 0.2s; }
+
+.gallery-item {
+    animation: scaleIn 0.4s ease;
+}
+
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.card:hover {
+    animation: none;
+}
+
+.gallery-item:hover {
+    animation: none;
+}
+
+/* ========================================
+   TRANSITION UTILITIES
+   ======================================== */
+
+.transition-fast {
+    transition: all 0.2s ease;
+}
+
+.transition-normal {
+    transition: all 0.3s ease;
+}
+
+.transition-slow {
+    transition: all 0.5s ease;
+}
+
+/* ========================================
+   RESPONSIVE ANIMATIONS
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

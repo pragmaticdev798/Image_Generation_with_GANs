@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}About - AI Face Generation{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <div class="page-header">
+        <h1>About This Project</h1>
+        <p>Learn about the DCGAN architecture and how it works</p>
+    </div>
+
+    <div class="about-container">
+        <!-- Project Overview -->
+        <section class="about-section">
+            <h2>Project Overview</h2>
+            <div class="content-box">
+                <p>
+                    This AI Face Generation project uses a Deep Convolutional Generative Adversarial Network (DCGAN)
+                    to create realistic human face images from scratch. The model was trained on a diverse dataset of
+                    human faces and can generate novel, never-before-seen faces that appear highly realistic.
+                </p>
+                <p>
+                    This is a demonstration of modern machine learning capabilities in generative modeling,
+                    particularly useful for understanding how neural networks can learn and reproduce complex
+                    visual patterns.
+                </p>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section class="about-section">
+            <h2>🧠 DCGAN Architecture</h2>
+            
+            <div class="architecture-grid">
+                <!-- Generator -->
+                <div class="arch-card">
+                    <h3>Generator Network</h3>
+                    <p>Takes random noise and generates fake face images</p>
+                    <div class="arch-details">
+                        <h4>Architecture:</h4>
+                        <ul>
+                            <li><strong>Input:</strong> Random noise (100-D vector)</li>
+                            <li><strong>Layer 1:</strong> Conv Transpose 1×1 → 4×4</li>
+                            <li><strong>Layer 2:</strong> Conv Transpose 4×4 → 8×8</li>
+                            <li><strong>Layer 3:</strong> Conv Transpose 8×8 → 16×16</li>
+                            <li><strong>Layer 4:</strong> Conv Transpose 16×16 → 32×32</li>
+                            <li><strong>Layer 5:</strong> Conv Transpose 32×32 → 64×64</li>
+                            <li><strong>Output:</strong> Fake face (64×64×3)</li>
+                        </ul>
+                        <h4>Activation:</h4>
+                        <ul>
+                            <li>ReLU for hidden layers</li>
+                            <li>Tanh for output layer [-1, 1]</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Discriminator -->
+                <div class="arch-card">
+                    <h3>Discriminator Network</h3>
+                    <p>Distinguishes real faces from generated ones</p>
+                    <div class="arch-details">
+                        <h4>Architecture:</h4>
+                        <ul>
+                            <li><strong>Input:</strong> Real or fake face (64×64×3)</li>
+                            <li><strong>Layer 1:</strong> Conv 64×64 → 32×32</li>
+                            <li><strong>Layer 2:</strong> Conv 32×32 → 16×16</li>
+                            <li><strong>Layer 3:</strong> Conv 16×16 → 8×8</li>
+                            <li><strong>Layer 4:</strong> Conv 8×8 → 4×4</li>
+                            <li><strong>Layer 5:</strong> Conv 4×4 → 1×1</li>
+                            <li><strong>Output:</strong> Real (1) or Fake (0)</li>
+                        </ul>
+                        <h4>Activation:</h4>
+                        <ul>
+                            <li>Leaky ReLU for hidden layers</li>
+                            <li>Sigmoid for output [0, 1]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Details -->
+        <section class="about-section">
+            <h2>📊 Training Information</h2>
+            <div class="content-box">
+                <div class="training-grid">
+                    <div class="training-item">
+                        <span class="item-label">Total Epochs:</span>
+                        <span class="item-value">50</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Batch Size:</span>
+                        <span class="item-value">128</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Learning Rate:</span>
+                        <span class="item-value">0.0002</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Image Size:</span>
+                        <span class="item-value">64×64</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Latent Dimension:</span>
+                        <span class="item-value">100</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Optimizer:</span>
+                        <span class="item-value">Adam</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Loss Function:</span>
+                        <span class="item-value">Binary Cross-Entropy</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="item-label">Device:</span>
+                        <span class="item-value">CPU</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How GANs Work -->
+        <section class="about-section">
+            <h2>⚙️ How GANs Work</h2>
+            <div class="content-box">
+                <p>
+                    <strong>Generative Adversarial Networks (GANs)</strong> work through a competitive learning process:
+                </p>
+                
+                <div class="steps-vertical">
+                    <div class="step-v">
+                        <div class="step-v-number">1</div>
+                        <h4>Generator Creates</h4>
+                        <p>
+                            The Generator takes random noise and creates fake face images,
+                            trying to fool the Discriminator.
+                        </p>
+                    </div>
+                    
+                    <div class="step-v-arrow">↓</div>
+                    
+                    <div class="step-v">
+                        <div class="step-v-number">2</div>
+                        <h4>Discriminator Judges</h4>
+                        <p>
+                            The Discriminator tries to distinguish real faces from generated ones.
+                            It learns to detect subtle differences.
+                        </p>
+                    </div>
+                    
+                    <div class="step-v-arrow">↓</div>
+                    
+                    <div class="step-v">
+                        <div class="step-v-number">3</div>
+                        <h4>Both Improve</h4>
+                        <p>
+                            Both networks improve iteratively. The Generator gets better at fooling
+                            the Discriminator, and the Discriminator gets better at detecting fakes.
+                        </p>
+                    </div>
+                    
+                    <div class="step-v-arrow">↓</div>
+                    
+                    <div class="step-v">
+                        <div class="step-v-number">4</div>
+                        <h4>Convergence</h4>
+                        <p>
+                            After training, the Generator can produce highly realistic faces.
+                            The Discriminator can't reliably distinguish real from fake.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Stack -->
+        <section class="about-section">
+            <h2>🔧 Technical Stack</h2>
+            <div class="content-box">
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h4>Backend</h4>
+                        <ul>
+                            <li>Python 3.8+</li>
+                            <li>Flask Web Framework</li>
+                            <li>PyTorch Deep Learning</li>
+                        </ul>
+                    </div>
+                    <div class="tech-item">
+                        <h4>Frontend</h4>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3 with Gradients</li>
+                            <li>Vanilla JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="tech-item">
+                        <h4>Image Processing</h4>
+                        <ul>
+                            <li>PIL (Python Imaging Library)</li>
+                            <li>NumPy for tensors</li>
+                            <li>Tensor operations</li>
+                        </ul>
+                    </div>
+                    <div class="tech-item">
+                        <h4>Deployment</h4>
+                        <ul>
+                            <li>Local Flask Server</li>
+                            <li>CPU Optimization</li>
+                            <li>Windows 11 Compatible</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Specifications -->
+        <section class="about-section">
+            <h2>📐 Model Specifications</h2>
+            <div class="spec-table">
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Model Type</td>
+                        <td>DCGAN</td>
+                        <td>Deep Convolutional Generative Adversarial Network</td>
+                    </tr>
+                    <tr>
+                        <td>Input Dimension</td>
+                        <td>100</td>
+                        <td>Latent noise vector dimensions</td>
+                    </tr>
+                    <tr>
+                        <td>Output Dimension</td>
+                        <td>64×64×3</td>
+                        <td>Generated face dimensions (Height × Width × Channels)</td>
+                    </tr>
+                    <tr>
+                        <td>Generator Channels</td>
+                        <td>64</td>
+                        <td>Base number of convolutional channels</td>
+                    </tr>
+                    <tr>
+                        <td>Total Parameters</td>
+                        <td>~3.5M</td>
+                        <td>Trainable parameters in Generator + Discriminator</td>
+                    </tr>
+                    <tr>
+                        <td>Training Time</td>
+                        <td>~8-12 hours</td>
+                        <td>Approximate training duration on CPU</td>
+                    </tr>
+                    <tr>
+                        <td>Inference Time</td>
+                        <td>~50-100ms</td>
+                        <td>Time to generate one image on CPU</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Limitations & Future Work -->
+        <section class="about-section">
+            <h2>🚀 Current Limitations & Future Improvements</h2>
+            <div class="content-box">
+                <h3>Current Limitations:</h3>
+                <ul>
+                    <li>Output resolution limited to 64×64 pixels</li>
+                    <li>CPU-based processing (slower than GPU)</li>
+                    <li>Limited to face generation only</li>
+                    <li>No control over specific face attributes</li>
+                </ul>
+                
+                <h3>Potential Improvements:</h3>
+                <ul>
+                    <li>Upgrade to Progressive GAN for higher resolution</li>
+                    <li>Add StyleGAN for better quality and control</li>
+                    <li>Implement GPU support for faster generation</li>
+                    <li>Add attribute conditioning (age, gender, emotion)</li>
+                    <li>Web deployment to cloud platform</li>
+                    <li>Real-time generation with live preview</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Credits -->
+        <section class="about-section">
+            <h2>📚 Resources & References</h2>
+            <div class="content-box">
+                <ul>
+                    <li>
+                        <strong>DCGAN Paper:</strong> Unsupervised Representation Learning with Deep Convolutional GANs
+                        (Radford et al., 2015)
+                    </li>
+                    <li>
+                        <strong>PyTorch Documentation:</strong> <a href="https://pytorch.org" target="_blank">pytorch.org</a>
+                    </li>
+                    <li>
+                        <strong>GAN Research:</strong> Recent advances in generative modeling
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

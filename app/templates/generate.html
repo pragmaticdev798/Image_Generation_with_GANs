@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Generate Faces - AI Face Generation{% endblock %}
+
+{% block content %}
+<div class="generate-page">
+    <div class="page-header">
+        <h1>Generate AI Faces</h1>
+        <p>Create unique, realistic faces using our trained DCGAN model</p>
+    </div>
+
+    <div class="generate-container">
+        <!-- Control Panel -->
+        <aside class="control-panel">
+            <h2>Generation Controls</h2>
+            
+            <!-- Model Selection -->
+            <div class="control-group">
+                <label for="checkpoint-select">Select Model Checkpoint:</label>
+                <select id="checkpoint-select" class="input-select">
+                    <option value="">-- Loading checkpoints --</option>
+                </select>
+                <button id="load-model-btn" class="btn btn-small btn-primary">Load Model</button>
+                <div id="model-status" class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Model not loaded</span>
+                </div>
+            </div>
+
+            <!-- Number of Images -->
+            <div class="control-group">
+                <label for="num-images">Number of Faces:</label>
+                <input 
+                    type="range" 
+                    id="num-images" 
+                    min="1" 
+                    max="20" 
+                    value="5" 
+                    class="slider"
+                >
+                <div class="slider-value">
+                    <span id="num-images-value">5</span> images
+                </div>
+            </div>
+
+            <!-- Seed Control -->
+            <div class="control-group">
+                <label for="seed-input">Random Seed (Optional):</label>
+                <input 
+                    type="number" 
+                    id="seed-input" 
+                    placeholder="Leave empty for random" 
+                    class="input-field"
+                >
+                <small>Use same seed to get same faces</small>
+            </div>
+
+            <!-- Generate Button -->
+            <button id="generate-btn" class="btn btn-primary btn-block btn-large">
+                <span class="btn-icon">✨</span>
+                Generate Faces
+            </button>
+
+            <!-- Clear Button -->
+            <button id="clear-btn" class="btn btn-secondary btn-block btn-small">
+                Clear All
+            </button>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3>ℹ️ Tips</h3>
+                <ul>
+                    <li>Load a checkpoint first</li>
+                    <li>Generate 1-20 images per batch</li>
+                    <li>Each face is unique</li>
+                    <li>Download individual images</li>
+                    <li>Use seed for reproducibility</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Gallery Section -->
+        <main class="gallery-section">
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="loading-indicator hidden">
+                <div class="spinner"></div>
+                <p>Generating faces...</p>
+                <p class="loading-subtitle"><span id="progress-text">0%</span> complete</p>
+            </div>
+
+            <!-- Latest Generated Face -->
+            <div id="latest-container" class="latest-container hidden">
+                <h2>Latest Generated Face</h2>
+                <div class="latest-face-wrapper">
+                    <img id="latest-face" src="" alt="Latest generated face" class="latest-face">
+                    <div class="latest-actions">
+                        <button class="btn btn-small btn-primary" onclick="downloadLatestImage()">
+                            ⬇️ Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="gallery-grid">
+                <div class="empty-state">
+                    <div class="empty-icon">📸</div>
+                    <p>Generated faces will appear here</p>
+                    <small>Load a model and click generate to start</small>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div id="generation-stats" class="generation-stats hidden">
+                <div class="stat">
+                    <span class="stat-label">Total Generated:</span>
+                    <span class="stat-value" id="total-generated">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Time Elapsed:</span>
+                    <span class="stat-value" id="generation-time">0s</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Image Preview Modal -->
+<div id="image-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <img id="modal-image" src="" alt="Full size preview">
+        <div class="modal-actions">
+            <button class="btn btn-primary" onclick="downloadModalImage()">
+                ⬇️ Download
+            </button>
+            <button class="btn btn-secondary modal-close-btn">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/generate.js') }}"></script>
+{% endblock %}

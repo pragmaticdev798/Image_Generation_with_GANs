@@ -1,0 +1,461 @@
+/* ========================================
+   GALLERY PAGE SPECIFIC STYLES
+   ======================================== */
+
+.gallery-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Gallery Container */
+.gallery-container {
+    margin-top: 2rem;
+}
+
+/* Tabs */
+.gallery-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.tab-button:hover {
+    color: var(--text-primary);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Carousel */
+.carousel {
+    background: linear-gradient(135deg, rgba(35, 35, 67, 0.5), rgba(26, 26, 46, 0.5));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-button {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+    transform: scale(1.1);
+}
+
+.carousel-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
+
+.carousel-info {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Gallery Grid View */
+.gallery-grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-grid-view .empty-state {
+    grid-column: 1 / -1;
+}
+
+/* About Page Styles */
+.about-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-page .page-header h1 {
+    font-size: 2.5rem;
+}
+
+/* Sections */
+.about-section {
+    margin: 2rem 0;
+    animation: slideUp 0.5s ease;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.about-section h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.about-section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-section ul {
+    margin-left: 1.5rem;
+    list-style: disc;
+}
+
+.about-section li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* Architecture Cards */
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.arch-card {
+    background: linear-gradient(135deg, rgba(35, 35, 67, 0.5), rgba(26, 26, 46, 0.5));
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.arch-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+}
+
+.arch-card h3 {
+    color: var(--primary-color);
+}
+
+.arch-details {
+    margin-top: 1rem;
+}
+
+.arch-details h4 {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    color: var(--text-primary);
+}
+
+.arch-details ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.arch-details li {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    padding-left: 1rem;
+}
+
+.arch-details li::before {
+    content: '→ ';
+    color: var(--primary-color);
+    margin-left: -1rem;
+    margin-right: 0.5rem;
+}
+
+/* Training Grid */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.training-item {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.item-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-value {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Steps Vertical */
+.steps-vertical {
+    margin: 2rem 0;
+}
+
+.step-v {
+    background: linear-gradient(135deg, rgba(35, 35, 67, 0.5), rgba(26, 26, 46, 0.5));
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    padding-left: 60px;
+    position: relative;
+}
+
+.step-v-number {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.step-v-arrow {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.step-v h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.step-v p {
+    color: var(--text-secondary);
+}
+
+/* Tech Grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.tech-item {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.tech-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tech-item ul {
+    list-style: none;
+    margin: 0;
+}
+
+.tech-item li {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.tech-item li::before {
+    content: '✓ ';
+    color: var(--success-color);
+    margin-right: 0.5rem;
+}
+
+/* Spec Table */
+.spec-table {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, rgba(35, 35, 67, 0.5), rgba(26, 26, 46, 0.5));
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th {
+    background: rgba(102, 126, 234, 0.2);
+    border-bottom: 2px solid var(--primary-color);
+    padding: 1rem;
+    text-align: left;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid-view {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .architecture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .training-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carousel-container {
+        flex-wrap: wrap;
+    }
+
+    .carousel-viewport {
+        min-height: 250px;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .carousel-viewport {
+        min-height: 200px;
+    }
+
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step-v {
+        padding-left: 50px;
+    }
+}

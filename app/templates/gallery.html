@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - AI Face Generation{% endblock %}
+
+{% block content %}
+<div class="gallery-page">
+    <div class="page-header">
+        <h1>Gallery</h1>
+        <p>Browse training samples and generated faces</p>
+    </div>
+
+    <div class="gallery-container">
+        <!-- Tab Navigation -->
+        <div class="gallery-tabs">
+            <button class="tab-button active" data-tab="samples">
+                📸 Training Samples
+            </button>
+            <button class="tab-button" data-tab="generated">
+                ✨ Generated Faces
+            </button>
+        </div>
+
+        <!-- Training Samples Tab -->
+        <div id="samples-tab" class="tab-content active">
+            <h2>Training Sample Images</h2>
+            <p class="tab-description">
+                These are samples from the training dataset used to train the DCGAN model
+            </p>
+
+            <!-- Carousel/Slider -->
+            <div class="carousel">
+                <div class="carousel-container">
+                    <button class="carousel-button prev" id="carousel-prev">
+                        <span>❮</span>
+                    </button>
+                    
+                    <div class="carousel-viewport">
+                        <img id="carousel-image" src="" alt="Training sample" class="carousel-image">
+                    </div>
+                    
+                    <button class="carousel-button next" id="carousel-next">
+                        <span>❯</span>
+                    </button>
+                </div>
+                
+                <div class="carousel-info">
+                    <p>
+                        <span id="carousel-counter">0 / 0</span> -
+                        <span id="carousel-filename">Loading...</span>
+                    </p>
+                </div>
+                
+                <div class="carousel-controls">
+                    <button class="btn btn-small" onclick="toggleCarouselAutoplay()">
+                        ⏯️ Autoplay
+                    </button>
+                    <button class="btn btn-small" onclick="zoomImage()">
+                        🔍 Zoom
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <h3>Grid View</h3>
+            <div id="samples-grid" class="gallery-grid-view">
+                <div class="empty-state">
+                    <p>Loading training samples...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generated Faces Tab -->
+        <div id="generated-tab" class="tab-content">
+            <h2>Generated Face Images</h2>
+            <p class="tab-description">
+                Faces created by the AI model during this session
+            </p>
+
+            <div id="generated-grid" class="gallery-grid-view">
+                <div class="empty-state">
+                    <div class="empty-icon">✨</div>
+                    <p>No generated faces yet</p>
+                    <p>
+                        <a href="/generate_page" class="link">
+                            Go to Generation Page →
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Zoom Modal -->
+<div id="zoom-modal" class="modal hidden">
+    <div class="modal-content zoom-modal">
+        <span class="modal-close">&times;</span>
+        <img id="zoom-image" src="" alt="Zoomed image">
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+{% endblock %}
